@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/pace.css">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>[𝕣𝕒𝕗𝕚𝕟] CVV CHECKER</title>
+    <title>[Checker]</title>
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600%7CRoboto:400" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
@@ -41,7 +41,7 @@ function Mudaestado(el) {
             <!-- Page Title Area -->
             <div class="row page-title clearfix">
                 <div class="page-title-left">
-                    <h6 class="page-title-heading mr-0 mr-r-5">⟻ 𝕣𝕒𝕗𝕚𝕟 ♛ ⟼</h6>
+                    <h6 class="page-title-heading mr-0 mr-r-5">𝕣𝕒𝕗𝕚𝕟 ♛ </h6>
                     <p class="page-title-description mr-0 d-none d-md-inline-block"></p>
                 </div>
                 <!-- /.page-title-left -->
@@ -58,7 +58,6 @@ function Mudaestado(el) {
                 <div class="widget-holder widget-full-height widget-flex col-lg-6">
                     <div class="widget-bg">
                         <div class="widget-heading">
-                            <h5 class="widget-title">[⍋] 𝕣𝕒𝕗𝕚𝕟 </h5>
                             <div class="widget-graph-info">
                                 <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
@@ -69,7 +68,7 @@ function Mudaestado(el) {
                         </div>
                         <!-- /.widget-heading -->
                         <div class="widget-body">
-                            <button type="button" id="sh_apr" onclick="Mudaestado('aprovadasapp');" class="btn btn-success" style="background-color: #28a248; border-color:#28a248 ">APPROVED [ <span id="aprovada_conta">0</span> ]</button>
+                            <button type="button" id="sh_apr" onclick="Mudaestado('aprovadasapp');" class="btn btn-success" style="background-color: #28a248; border-color:#28a248 ">Card Live [ <span id="aprovada_conta">0</span> ]</button>
 
                             <br>
 
@@ -77,7 +76,7 @@ function Mudaestado(el) {
 
                             <br><br>
 
-                            <button type="button" id="sh_rep" onclick="Mudaestado('reprovadasapp');" class="btn btn-danger"  style="background-color: #972b2b; border-color:#972b2b">DECLINED [ <span id="reprovada_conta">0</span> ]</button>
+                            <button type="button" id="sh_rep" onclick="Mudaestado('reprovadasapp');" class="btn btn-danger"  style="background-color: #972b2b; border-color:#972b2b">Card Dead [ <span id="reprovada_conta">0</span> ]</button>
 
                             <br>
 
@@ -91,7 +90,6 @@ function Mudaestado(el) {
                 <div class="widget-holder widget-full-content widget-full-height col-lg-6">
                     <div class="widget-bg">
                         <div class="widget-heading">
-                            <h5 class="widget-title">FILL IN THE INFORMATION.</h5>
                             <div class="widget-graph-info">
                                 <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
@@ -107,26 +105,23 @@ function Mudaestado(el) {
                                     <div class="col">
                                         
 
-                                    <textarea id="lista" placeholder="FORMAT: 0000000000000000|00|0000|000" class="form-control" style="resize:yes;outline:none;width:200; height:150px;"></textarea><br>
+                                    <textarea id="lista" placeholder="Card: 4984440286147061|12|2022|674" class="form-control" style="resize:yes;outline:none;width:200; height:150px;"></textarea><br>
 
                                     <button type="button" id="iniciar"  onclick="start()" class="btn btn-success" style="background-color: #28a248; border-color:#28a248">Start</button> 
                                     <button type="button" onclick="stop()" id="parar" class="btn btn-danger" style="background-color: #972b2b; border-color:#972b2b" >Stop</button>
 
                                     <br><br>
 
-                                    <small>STATUS: <span class="bagde badge-pill badge-primary" id="demo">WAITING FOR BEGINNING</span> - 
-                                    APPROVED: <span id="CLIVE" class="badge badge-success">0</span> - 
-                                    DECLINED: <span id="CDIE" class="badge badge-danger">0</span> - 
-                                    TESTED: <span id="testado" class="badge badge-warning">0</span> - 
-                                    TOTAL: <span id="carregada" class="badge badge-info">0</span></small>
+                                    <small>Status: <span class="bagde badge-pill badge-primary" id="demo">Esperando</span> - 
+                                    Card Live: <span id="CLIVE" class="badge badge-success">0</span> - 
+                                    Card Dead: <span id="CDIE" class="badge badge-danger">0</span> - 
+                                    Checadas: <span id="testado" class="badge badge-warning">0</span> - 
+                                    Cargadas: <span id="carregada" class="badge badge-info">0</span></small>
 
                                     <br><br>
+                                
 
-                                    Date: <span class="badge badge-primary" id="horas">NULL</span>
-
-                                    <br><br>
-
-                                    <p>Edited By :  <a target="_BLANK" href="https://www.youjizz.com/">𝕣𝕒𝕗𝕚𝕟 ♛</a></p>
+                                    <p>By :  <a target="_BLANK" href="https://www.youjizz.com/">𝕣𝕒𝕗𝕚𝕟 ♛</a></p>
 
 
                                             <!-- /.col-6 -->
