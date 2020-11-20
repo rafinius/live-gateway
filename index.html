@@ -1,162 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="assets/css/pace.css">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>[Checker]</title>
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600%7CRoboto:400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    
-    <!-- Head Libs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script data-pace-options='{ "ajax": false, "selectors": [ "img" ]}' src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
-    <script>
-var myVar=setInterval(function(){myTimer()},1000);
-function myTimer() {
-    var d = new Date();
-    document.getElementById("horas").innerHTML = d.toLocaleTimeString();
-}
-</script>
-<script type="text/javascript">
-function Mudaestado(el) {
-        var display = document.getElementById(el).style.display;
-        if(display == "none")
-            document.getElementById(el).style.display = 'block';
-        else
-            document.getElementById(el).style.display = 'none';
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Checker </title>
+    <link href="reboot13.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<center>
+        <div class="row col-md-12">
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="card col-sm-12">
+  <h5 class="card-body h6"><strong><a style="text-decoration: none;color:white;">Checker</a></strong></h5>
+  <div class="card-body">
+<div class="md-form">
+    <div class="col-md-12">
+        <span>Approved:</span>&nbsp<span id="cLive" class="badge badge-success">0</span>
+    <span>Declined:</span>&nbsp<span id="cDie" class="badge badge-danger"> 0</span>
+    <span>Checked:</span>&nbsp<span id="total" class="badge badge-info">0</span>
+    <span>Total:</span>&nbsp<span id="carregadas" class="badge badge-dark">0</span>&nbsp;<br>&nbsp;<br>
+  <textarea type="text" style="text-align: center;" id="lista" class="md-textarea form-control" rows="4" placeholder="Enter Cards"></textarea>&nbsp;
+  <center>
+ <button type="button" id="iniciar"  onclick="start()" class="btn btn-success" style="background-color:#0000ff; border-color:#0030ff">Start</button>                                                                                                      
+ <button type="button" onclick="stop()" id="parar" class="btn btn-danger" style="background-color:#972b2b; border-color:#972b2b" >Stop</button>
+        </center>
+ </center>
+</div>
+</div>
+&nbsp;<br>
+
+</div>
+
+
+</div>
+</div>
+</div>
+    </div>
+&nbsp;<br>&nbsp;<br>&nbsp;<br>
+<div class="col-md-12">
+<div class="card">
+<div style="position: absolute;
+        top: 0;
+        right: 0;">
+    <button id="mostra" class="btn btn-primary">SHOW/HIDE</button>
+</div>
+  <div class="card-body">
+    <h6 style="font-weight: bold;" class="card-title">Approved - <span  id="cLive2" class="badge badge-success">0</span></h6>
+    <div id="bode"><span id=".aprovadas" class="aprovadas"></span>
+</div>
+  </div>
+</div>
+</div>
+
+<br>
+
+<div class="col-md-12">
+<div class="card">
+    <div style="position: absolute;
+        top: 0;
+        right: 0;">
+    <button id="mostra2" class="btn btn-primary">SHOW/HIDE</button>
+</div>
+  <div class="card-body">
+    <h6 style="font-weight: bold;" class="card-title">Declined - <span id="cDie2" class="badge badge-danger">0</span></h6>
+    <div id="bode2"><span id=".reprovadas" class="reprovadas"></span>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</div>
+</center>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+<script title="ajax do checker">
+    function enviar() {
+        var linha = $("#lista").val();
+        var linhaenviar = linha.split("\n");
+        var total = linhaenviar.length;
+        var ap = 0;
+        var ed = 0;
+        var rp = 0;
+        linhaenviar.forEach(function(value, index) {
+            setTimeout(
+                function() {
+          var sec = document.getElementById("sec").value;
+                    $.ajax({
+                        url: 'api.php?lista=' + value + '&sec=' + sec,
+                        type: 'GET',
+                        async: true,
+                        success: function(resultado) {
+                            if (resultado.match("#Approved")) {
+                                removelinha();
+                                ap++;
+                                aprovadas(resultado + "");
+                            }else {
+                                removelinha();
+                                rp++;
+                                reprovadas(resultado + "");
+                            }
+                            $('#carregadas').html(total);
+                            var fila = parseInt(ap) + parseInt(rp);
+                            $('#cLive').html(ap);
+                            $('#cWarn').html(ed);
+                            $('#cDie').html(rp);
+                            $('#total').html(fila);
+                            $('#cLive2').html(ap);
+                            $('#cWarn2').html(ed);
+                            $('#cDie2').html(rp);
+                        }
+                    });
+                }, 2500 * index);
+        });
+    }
+    function aprovadas(str) {
+        $(".aprovadas").append(str + "<br>");
+    }
+    function edrovadas(str) {
+        $(".edrovadas").append(str + "<br>");
+    }
+    function reprovadas(str) {
+        $(".reprovadas").append(str + "<br>");
+    }
+    function removelinha() {
+        var lines = $("#lista").val().split('\n');
+        lines.splice(0, 1);
+        $("#lista").val(lines.join("\n"));
     }
 </script>
-</head>
-
-<body class="content-dark">
-        <!-- /.site-sidebar -->
-        <main class="main-wrapper clearfix">
-            <!-- Page Title Area -->
-            <div class="row page-title clearfix">
-                <div class="page-title-left">
-                    <h6 class="page-title-heading mr-0 mr-r-5">𝕣𝕒𝕗𝕚𝕟 ♛ </h6>
-                    <p class="page-title-description mr-0 d-none d-md-inline-block"></p>
-                </div>
-                <!-- /.page-title-left -->
-                
-                <!-- /.page-title-right -->
-            </div>
-            <!-- /.page-title -->
-            <!-- =================================== -->
-            <!-- Different data widgets ============ -->
-            <!-- =================================== -->
-            <div class="widget-list row">
-                
-                <!-- /.widget-holder -->
-                <div class="widget-holder widget-full-height widget-flex col-lg-6">
-                    <div class="widget-bg">
-                        <div class="widget-heading">
-                            <div class="widget-graph-info">
-                                <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.widget-graph-info -->
-                        </div>
-                        <!-- /.widget-heading -->
-                        <div class="widget-body">
-                            <button type="button" id="sh_apr" onclick="Mudaestado('aprovadasapp');" class="btn btn-success" style="background-color: #28a248; border-color:#28a248 ">Card Live [ <span id="aprovada_conta">0</span> ]</button>
-
-                            <br>
-
-                            <p id="aprovadasapp"></p>
-
-                            <br><br>
-
-                            <button type="button" id="sh_rep" onclick="Mudaestado('reprovadasapp');" class="btn btn-danger"  style="background-color: #972b2b; border-color:#972b2b">Card Dead [ <span id="reprovada_conta">0</span> ]</button>
-
-                            <br>
-
-                            <p id="reprovadasapp"></p>
-                        </div>
-                        <!-- /.widget-body -->
-                    </div>
-                    <!-- /.widget-bg -->
-                </div>
-                <!-- /.widget-holder -->
-                <div class="widget-holder widget-full-content widget-full-height col-lg-6">
-                    <div class="widget-bg">
-                        <div class="widget-heading">
-                            <div class="widget-graph-info">
-                                <div class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle text-muted fs-16" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Action</a>  <a class="dropdown-item" href="#">Another action</a>  <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.widget-graph-info -->
-                        </div>
-                        <!-- .widget-heading -->
-                        <div class="widget-body">
-                            <div class="container-fluid pd-20">
-                                <div class="row">
-                                    <div class="col">
-                                        
-
-                                    <textarea id="lista" placeholder="Card: 4984440286147061|12|2022|674" class="form-control" style="resize:yes;outline:none;width:200; height:150px;"></textarea><br>
-
-                                    <button type="button" id="iniciar"  onclick="start()" class="btn btn-success" style="background-color: #28a248; border-color:#28a248">Start</button> 
-                                    <button type="button" onclick="stop()" id="parar" class="btn btn-danger" style="background-color: #972b2b; border-color:#972b2b" >Stop</button>
-
-                                    <br><br>
-
-                                    <small>Status: <span class="bagde badge-pill badge-primary" id="demo">Esperando</span> - 
-                                    Card Live: <span id="CLIVE" class="badge badge-success">0</span> - 
-                                    Card Dead: <span id="CDIE" class="badge badge-danger">0</span> - 
-                                    Checadas: <span id="testado" class="badge badge-warning">0</span> - 
-                                    Cargadas: <span id="carregada" class="badge badge-info">0</span></small>
-
-                                    <br><br>
-                                
-
-                                    <p>By :  <a target="_BLANK" href="https://www.youjizz.com/">𝕣𝕒𝕗𝕚𝕟 ♛</a></p>
 
 
-                                            <!-- /.col-6 -->
-                                    </div>
-                                        <!-- /.row -->
-                                    </div>
-                                    <!-- /.col-lg-6 -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.container-fluid -->
-                        </div>
-                        <!-- /.widget-body -->
-                    </div>
-                    <!-- /.widget-bg -->
-                </div>
-                <!-- /.widget-holder -->
-            </div>
-            <!-- /.widget-list -->
-            </div>
-            <!-- /.card -->
-        </div>
-        <!-- /.chat-panel -->
-    </div>
-    <!-- /.content-wrapper -->
-    <!-- FOOTER -->
-    </div>
-    <!--/ #wrapper -->
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="jquery.js"></script>
-    <script src="jquery-ui.js"></script>
-    <script src="js.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/js/mdb.min.js"></script>
 </body>
 
 </html>
